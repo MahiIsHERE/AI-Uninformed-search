@@ -22,7 +22,7 @@ def getStartEnd(maze):
             elif maze[i][j] == 'G':
                 end = (i, j)
     return start, end
-# get start start and end
+# get start and end
 
 def getNeighbors(maze, node):
     neighbors = []
@@ -35,30 +35,27 @@ def getNeighbors(maze, node):
 
 def ucs(maze):
     start, end = getStartEnd(maze)
-    heap = [(0, start , "")]
+    heap = [(0, start, "")]
     visited = set()
     c =[]
-    move = []
     while heap:
-        cost, node , path= heapq.heappop(heap)
+        cost, node, path = heapq.heappop(heap)
         if node == end:
             print('The cost is: ' + str(cost))
             return "The path is: " + path
         if node in visited:
             continue
         c.append(node)
-        #print(c)
         if range(len(c))== 1:
             pass
         elif len(c) >= 2 and c[-1][0] == c[-2][0] and c[-1][1] == c[-2][1]- 1:
-            move.append("L")
+            move = "left"
         elif len(c) >= 2 and c[-1][0] == c[-2][0] and c[-1][1] == c[-2][1]+ 1:
-            move.append("R")
+            move = "right"
         elif len(c) >= 2 and c[-1][0] == c[-2][0]-1 and c[-1][1] == c[-2][1]:
-            move.append("U")
+            move = "up"
         elif len(c) >= 2 and c[-1][0] == c[-2][0]+1 and c[-1][1] == c[-2][1]:
-            move.append("D")
-        #print(move)
+            move = "down"
         visited.add(node)
         for neighbor in getNeighbors(maze, node):
             heapq.heappush(heap, (cost + 1, neighbor[:2], path + neighbor[2]))

@@ -11,9 +11,7 @@ def readMaze(filename):
             maze.append(row)
     maze.remove(maze[0])
     return maze
-# read file  save to string
-
-
+    
 def getStartEnd(maze):
     for i in range(len(maze)):
         for j in range(len(maze[i])):
@@ -22,7 +20,6 @@ def getStartEnd(maze):
             elif maze[i][j] == 'G':
                 end = (i, j)
     return start, end
-# get start and end
 
 def getNeighbors(maze, node):
     neighbors = []
@@ -31,7 +28,7 @@ def getNeighbors(maze, node):
         if 0 <= x < len(maze) and 0 <= y < len(maze[x]) and maze[x][y] != '%':   #changed '#' to '%'
             neighbors.append((x, y, direction))
     return neighbors
-# move
+# movement
 
 def ucs(maze):
     start, end = getStartEnd(maze)

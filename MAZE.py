@@ -25,7 +25,7 @@ def getNeighbors(maze, node):
     neighbors = []
     for dx, dy, direction in [(0, 1, 'R'), (0, -1, 'L'), (1, 0, 'D'), (-1, 0, 'U')]:
         x, y = node[0] + dx, node[1] + dy
-        if 0 <= x < len(maze) and 0 <= y < len(maze[x]) and maze[x][y] != '%':   #changed '#' to '%'
+        if 0 <= x < len(maze) and 0 <= y < len(maze[x]) and maze[x][y] != '%':
             neighbors.append((x, y, direction))
     return neighbors
 # movement
@@ -34,7 +34,7 @@ def ucs(maze):
     start, end = getStartEnd(maze)
     heap = [(0, start, "")]
     visited = set()
-    c =[]
+    c = []
     while heap:
         cost, node, path = heapq.heappop(heap)
         if node == end:

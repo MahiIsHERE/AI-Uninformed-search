@@ -67,4 +67,4 @@ end_time = time.time()
 elapsed_time = end_time - start_time
 print("runtime: " + str(elapsed_time))
 
-print ("\nMaedeh Zarei \nMelika Khosravi \nFahimeh HassanZadeh \nMahdieh Mortezaie")
+print ("\nDONE!")
